@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_demo1/page/TextPage.dart';
 import 'package:flutter_demo1/page/ImagePage.dart';
+import 'package:flutter_demo1/page/TextFieldPage.dart';
+import 'package:flutter_demo1/page/SnackBarPage.dart';
+
+
+
 
 
 void main() => runApp(MyApp());
@@ -32,6 +37,8 @@ class MyAppState extends State<MyApp> {
         routes:{
           '/Page0': (context) => TextPage(),
           '/Page1': (context) => ImagePage(),
+          '/Page2':(contex) => TextFieldPage(),
+          '/Page3':(context) => SnackBarPage(),
         }
     );
   }
