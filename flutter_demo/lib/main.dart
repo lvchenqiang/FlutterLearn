@@ -4,11 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo1/page/TextPage.dart';
 import 'package:flutter_demo1/page/ImagePage.dart';
 import 'package:flutter_demo1/page/TextFieldPage.dart';
+import 'package:flutter_demo1/page/ButtonPage.dart';
 import 'package:flutter_demo1/page/SnackBarPage.dart';
 import 'package:flutter_demo1/page/DialogPage.dart';
 import 'package:flutter_demo1/page/BottomSheetPage.dart';
 import 'package:flutter_demo1/page/MenuPage.dart';
 import 'package:flutter_demo1/page/GestureDetectorPage.dart';
+import 'package:flutter_demo1/page/FlexPage.dart';
+import 'package:flutter_demo1/page/LinearPage.dart';
+import 'package:flutter_demo1/page/WrapPage.dart';
+import 'package:flutter_demo1/page/ContainersPage.dart';
+import 'package:flutter_demo1/page/FeaturesPage.dart';
+
 
 
 void main() => runApp(MyApp());
@@ -38,13 +45,18 @@ class MyAppState extends State<MyApp> {
         routes:{
           '/Page0': (context) => TextPage(),
           '/Page1': (context) => ImagePage(),
-          '/Page2':(contex) => TextFieldPage(),
-          '/Page3':(context) => SnackBarPage(),
-          '/Page4':(context) => DialogPage(),
-          '/Page5':(context) => BottomSheetPage(),
-          '/Page6':(context) => MenuPage(),
-          '/Page7':(context) => GestureDetectorPage(),
-
+          '/Page2':(context) => TextFieldPage(),
+          '/Page3':(context) => ButtonPage(),
+          '/Page4':(context) => SnackBarPage(),
+          '/Page5':(context) => DialogPage(),
+          '/Page6':(context) => BottomSheetPage(),
+          '/Page7':(context) => MenuPage(),
+          '/Page8':(context) => GestureDetectorPage(),
+          '/Page9':(contex) => FlexPage(),
+          '/Page10':(context) => LinearPage(),
+          '/Page11':(context) => WrapPage(),
+          '/Page12':(context) => ContainersPage(),
+          '/Page13':(context) => FeaturesPage(),
         }
     );
   }
@@ -66,23 +78,24 @@ class _MyHomePageState extends State<MyHomePage> {
     '第1节 -- 文本框',
     '第2节 -- 图片和Icon',
     '第3节 -- 输入框',
-    '第4节 -- SnackBar',
-    '第5节 -- 对话框',
-    '第6节 -- BottomSheet',
-    '第7节 -- 菜单栏',
-    '第8节 -- 手势识别Widget',
-    '第9节 -- 弹性布局',
-    '第10节 -- 线性布局',
-    '第11节 -- 流式布局',
-    '第12节 -- 层叠布局',
-    '第13节 -- 容器类Widget',
-    '第14节 -- 功能类Widget',
-    '第15节 -- SingleChildScrollView',
-    '第16节 -- ListView',
-    '第17节 -- CustomScrollView',
-    '第18节 -- GridView',
-    '第19节 -- PageView',
-    '第20节 -- 响应式编程',
+    '第4节 -- Button',
+    '第5节 -- SnackBar',
+    '第6节 -- 对话框',
+    '第7节 -- BottomSheet',
+    '第8节 -- 菜单栏',
+    '第9节 -- 手势识别Widget',
+    '第10节 -- 弹性布局',
+    '第11节 -- 线性布局',
+    '第12节 -- 流式布局',
+    '第13节 -- 层叠布局',
+    '第14节 -- 容器类Widget',
+    '第15节 -- 功能类Widget',
+    '第16节 -- SingleChildScrollView',
+    '第17节 -- ListView',
+    '第18节 -- CustomScrollView',
+    '第19节 -- GridView',
+    '第20节 -- PageView',
+    '第21节 -- 响应式编程',
   ];
 
   @override
