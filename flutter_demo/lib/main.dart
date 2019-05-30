@@ -5,9 +5,10 @@ import 'package:flutter_demo1/page/TextPage.dart';
 import 'package:flutter_demo1/page/ImagePage.dart';
 import 'package:flutter_demo1/page/TextFieldPage.dart';
 import 'package:flutter_demo1/page/SnackBarPage.dart';
-
-
-
+import 'package:flutter_demo1/page/DialogPage.dart';
+import 'package:flutter_demo1/page/BottomSheetPage.dart';
+import 'package:flutter_demo1/page/MenuPage.dart';
+import 'package:flutter_demo1/page/GestureDetectorPage.dart';
 
 
 void main() => runApp(MyApp());
@@ -39,6 +40,11 @@ class MyAppState extends State<MyApp> {
           '/Page1': (context) => ImagePage(),
           '/Page2':(contex) => TextFieldPage(),
           '/Page3':(context) => SnackBarPage(),
+          '/Page4':(context) => DialogPage(),
+          '/Page5':(context) => BottomSheetPage(),
+          '/Page6':(context) => MenuPage(),
+          '/Page7':(context) => GestureDetectorPage(),
+
         }
     );
   }
