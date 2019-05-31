@@ -28,6 +28,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: '豆瓣电影'),
+      routes: {
+    '/Citys': (context) => CitysWidget(),
+},
     );
   }
 }

@@ -14,7 +14,7 @@ class _HotWidgetState extends State<HotWidget> {
   String curCity;
 
   void initData() async {
-    
+
     final prefs = await SharedPreferences.getInstance();//获取 prefs
 
     String city = prefs.getString('curCity');//获取 key 为 curCity 的值
@@ -59,6 +59,7 @@ class _HotWidgetState extends State<HotWidget> {
                 ),
                 onTap: (){
                   print("点击了标题");
+                  Navigator.pushNamed(context, '/Citys', arguments: curCity);
                 },
               ),
               Icon(Icons.arrow_drop_down),
