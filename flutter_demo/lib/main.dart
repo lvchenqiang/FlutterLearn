@@ -13,9 +13,15 @@ import 'package:flutter_demo1/page/GestureDetectorPage.dart';
 import 'package:flutter_demo1/page/FlexPage.dart';
 import 'package:flutter_demo1/page/LinearPage.dart';
 import 'package:flutter_demo1/page/WrapPage.dart';
+import 'package:flutter_demo1/page/StackPage.dart';
 import 'package:flutter_demo1/page/ContainersPage.dart';
 import 'package:flutter_demo1/page/FeaturesPage.dart';
-
+import 'package:flutter_demo1/SingleChildScrollView/SingleChildScrollViewWidget.dart';
+import 'package:flutter_demo1/page/ListViewPage.dart';
+import 'package:flutter_demo1/page/GridViewPage.dart';
+import 'package:flutter_demo1/page/PageViewPage.dart';
+import 'package:flutter_demo1/customscrollview/CustonScrollViewWidget.dart';
+import 'package:flutter_demo1/page/ReactivePage.dart';
 
 
 void main() => runApp(MyApp());
@@ -55,8 +61,16 @@ class MyAppState extends State<MyApp> {
           '/Page9':(contex) => FlexPage(),
           '/Page10':(context) => LinearPage(),
           '/Page11':(context) => WrapPage(),
-          '/Page12':(context) => ContainersPage(),
-          '/Page13':(context) => FeaturesPage(),
+          '/Page12':(context) => StackPage(),
+          '/Page13':(context) => ContainersPage(),
+          '/Page14':(context) => FeaturesPage(),
+          '/Page15':(context) => SingleChildScrollViewWidget(),
+          '/Page16' :(context) => ListViewPage(),
+          '/Page17':(context) => CustomScrollViewWidget(),
+          '/Page18':(context) => GridViewPage(),
+          '/Page19':(context) => PageViewPage(),
+          '/Page20':(context) => ReactivePage(),
+
         }
     );
   }
