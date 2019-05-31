@@ -18,12 +18,17 @@ class _HotWidgetState extends State<HotWidget> {
   void _jumpToCitysWidget() async{
     var selectCity = await Navigator.pushNamed(context, '/Citys',arguments: curCity);
     if(selectCity == null) return;
+
+    final prefs = await SharedPreferences.getInstance(); 
+    prefs.setString('curCity', selectCity); //存取数据
+
+
     setState(() {
       curCity =  selectCity;
     });
   }
 
-  
+
   void initData() async {
 
     final prefs = await SharedPreferences.getInstance();//获取 prefs

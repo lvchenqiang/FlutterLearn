@@ -77,6 +77,7 @@ class _HotMovieItemWidgetState extends State<HotMovieItemWidget> {
                   highlightedBorderColor: Colors.red,
                   borderSide: BorderSide(color: Colors.red),
                   onPressed: () {
+                    print("---点击了购买");
                     methodChannel.invokeMethod('buyTicket',
                         '购买 ' + widget.hotMovieData.title + ' 电影票一张');
                   },

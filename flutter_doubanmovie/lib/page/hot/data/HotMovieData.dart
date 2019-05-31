@@ -1,6 +1,10 @@
 import 'dart:convert';
 
 
+
+String smallTmp = "https://img1.doubanio.com/view/celebrity/s_ratio_celebrity/public/p20877.webp";
+String largeTmp = "https://img1.doubanio.com/view/celebrity/s_ratio_celebrity/public/p20877.webp";
+String mediumTmp = "https://img1.doubanio.com/view/celebrity/s_ratio_celebrity/public/p20877.webp";
 // 数据模型
 class HotMovieData{
   Rating rating;
@@ -31,6 +35,7 @@ class HotMovieData{
 
     List<Cast> casts = new List();
     for (dynamic castData in movieDataJson['casts']) {
+     
       Avatars avatars = Avatars(castData['avatars']['small'], castData['avatars']['large'], castData['avatars']['medium']);
       Cast cast= new Cast(castData['alt'],avatars,castData['name'],castData['id']);
       casts.add(cast);
@@ -41,7 +46,16 @@ class HotMovieData{
 
     List<Cast> directors = new List();
     for (dynamic castData in movieDataJson['directors']) {
-      Avatars avatars = Avatars(castData['avatars']['small'], castData['avatars']['large'], castData['avatars']['medium']);
+       Avatars avatars;
+       if(castData['avatars'] != null){
+         avatars = Avatars(castData['avatars']['small'], castData['avatars']['large'], castData['avatars']['medium']);
+       }else{
+         avatars = Avatars(smallTmp, largeTmp, mediumTmp);
+       }
+
+    
+
+      
       Cast cast= new Cast(castData['alt'],avatars,castData['name'],castData['id']);
       directors.add(cast);
     }
