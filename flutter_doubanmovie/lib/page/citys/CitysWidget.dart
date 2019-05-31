@@ -130,7 +130,7 @@ class _CitysWidgetState extends State<CitysWidget> {
                                     color: Colors.white,
                                     elevation: 0,
                                     onPressed: (){
-                                      print("选择了${hotCitys[index]}");
+                                      Navigator.pop(context,hotCitys[index]);
                                     },
                                   );
                                 },

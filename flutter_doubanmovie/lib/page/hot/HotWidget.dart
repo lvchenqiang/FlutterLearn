@@ -13,6 +13,17 @@ class _HotWidgetState extends State<HotWidget> {
 
   String curCity;
 
+
+
+  void _jumpToCitysWidget() async{
+    var selectCity = await Navigator.pushNamed(context, '/Citys',arguments: curCity);
+    if(selectCity == null) return;
+    setState(() {
+      curCity =  selectCity;
+    });
+  }
+
+  
   void initData() async {
 
     final prefs = await SharedPreferences.getInstance();//获取 prefs
@@ -58,8 +69,7 @@ class _HotWidgetState extends State<HotWidget> {
                 style: TextStyle(fontSize: 16),
                 ),
                 onTap: (){
-                  print("点击了标题");
-                  Navigator.pushNamed(context, '/Citys', arguments: curCity);
+                  _jumpToCitysWidget();
                 },
               ),
               Icon(Icons.arrow_drop_down),
