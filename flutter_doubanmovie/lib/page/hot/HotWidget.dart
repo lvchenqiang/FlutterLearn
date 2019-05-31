@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_doubanmovie/page/hot/HotMoviesListWidget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 class HotWidget extends StatefulWidget {
   HotWidget({Key key}) : super(key: key);
@@ -7,9 +10,41 @@ class HotWidget extends StatefulWidget {
 }
 
 class _HotWidgetState extends State<HotWidget> {
+
+  String curCity;
+
+  void initData() async {
+    
+    final prefs = await SharedPreferences.getInstance();//获取 prefs
+
+    String city = prefs.getString('curCity');//获取 key 为 curCity 的值
+
+    if (city != null && city.isNotEmpty) { //如果有值
+      setState((){
+        curCity = city;
+      });
+    } else {//如果没有值，则使用默认值
+      setState((){
+        curCity = '杭州';
+      });
+    }
+  }
+
+
+  
+    @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print('HotWidgetState initState');
+    initData();
+  }
+
+
   @override
   Widget build(BuildContext context) {
-    return Column(
+    if (curCity != null && curCity.isNotEmpty) {//如果 curCity 不为空
+     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         Container(
@@ -19,7 +54,7 @@ class _HotWidgetState extends State<HotWidget> {
           child: Row(
             children: <Widget>[
               GestureDetector(
-                child: Text('杭州',
+                child: Text(curCity,
                 style: TextStyle(fontSize: 16),
                 ),
                 onTap: (){
@@ -69,10 +104,7 @@ class _HotWidgetState extends State<HotWidget> {
                         child: TabBarView(
                           physics: ClampingScrollPhysics(),
                           children: <Widget>[
-                            // HotMoviesListWidget(curCity),
-                            Center(
-                              child: Text('正在热映'),
-                            ),
+                            HotMoviesListWidget(curCity),
                             Center(
                               child: Text('即将上映'),
                             )
@@ -87,5 +119,11 @@ class _HotWidgetState extends State<HotWidget> {
           )
       ],
     );
+    }else{
+      return Center(
+        child: CircularProgressIndicator(),
+      ); 
+    }
+   
 }
 }
