@@ -7,6 +7,8 @@ import 'package:flutter_trip/dao/home_dao.dart';
 import 'package:flutter_trip/model/home_model.dart';
 
 import 'package:flutter_trip/widgets/gird_nav.dart';
+import 'package:flutter_trip/widgets/local_nav.dart';
+
 
 const APPBAR_SCROLL_OFFSET = 100;
 
@@ -53,9 +55,9 @@ class _HomePageState extends State<HomePage> {
      );
    }
 
-  print(homeModel.config.searchUrl);
 
     return Scaffold(
+      backgroundColor: Color(0xfff2f2f2),
       body: Stack(
         children: <Widget>[
           MediaQuery.removePadding(
@@ -84,7 +86,12 @@ class _HomePageState extends State<HomePage> {
                      pagination: SwiperPagination(),
                    ),
                  ),
-                
+                 Padding(
+                   padding: EdgeInsets.only(left: 12,right: 12,top: 4,bottom: 4),
+                   child: LocalNav(localNavList:homeModel.localNavList),
+                 ),
+
+                GirdNav(model: homeModel.gridNav),
                  Container(
                    height: 800,
                    child: ListTile(
