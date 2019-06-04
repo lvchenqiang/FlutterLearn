@@ -12,7 +12,7 @@ final SalesBoxModel salesBox;
 
   HomeModel({this.config, this.bannerList, this.localNavList, this.subNavList, this.gridNav, this.salesBox});
   factory  HomeModel.fromJson(Map<String, dynamic> json){
-
+   print(json);
 
    var localNavListJson = json["localNavList"] as List;
    List <CommonModel> localNavList = localNavListJson.map((i) => CommonModel.fromJson(i)).toList();
@@ -50,6 +50,11 @@ factory ConfigModel.fromJson(json){
     searchUrl: json['searchUrl']
   );
 }
+
+Map<String,dynamic> toJson(){
+  return {searchUrl:searchUrl};
+}
+
 }
 
 

@@ -1,9 +1,12 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 import 'package:flutter_trip/dao/home_dao.dart';
 import 'package:flutter_trip/model/home_model.dart';
 
+import 'package:flutter_trip/widgets/gird_nav.dart';
 
 const APPBAR_SCROLL_OFFSET = 100;
 
@@ -23,7 +26,7 @@ class _HomePageState extends State<HomePage> {
 
   double appBarAlpha = 0;
 
-  String resultStr = '';
+  HomeModel homeModel;
 
 
   _onScroll(offset) {
@@ -42,6 +45,16 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
+  
+   if(homeModel == null){
+     return Center(
+       child: CircularProgressIndicator(),
+     );
+   }
+
+  print(homeModel.config.searchUrl);
+
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -71,10 +84,11 @@ class _HomePageState extends State<HomePage> {
                      pagination: SwiperPagination(),
                    ),
                  ),
+                
                  Container(
                    height: 800,
                    child: ListTile(
-                     title: Text(resultStr),
+                     title: Text(homeModel.config.searchUrl),
                    ),
                  )
                ],
@@ -89,7 +103,7 @@ class _HomePageState extends State<HomePage> {
               child: Center(
                 child: Padding(
                 padding: EdgeInsets.only(top: 20),
-                child: Text('首页'),
+                child: Text(homeModel.config.searchUrl),
               ),
               )
             ),
@@ -111,29 +125,32 @@ class _HomePageState extends State<HomePage> {
   }
 
   void loadData() async{
-    HomdeDao.fetch().then((result){
-     print(result);
-    }).catchError((error){
-   print(error);
-    });
+  //   HomdeDao.fetch().then((result){
+  //    print(result);
+  //   }).catchError((error){
+  //  print(error);
+  //   });
 
 
-  // try {
-print("成功");
+  try {
     HomeModel model = await HomdeDao.fetch();
-    print(model);
+
+    print(model.config.searchUrl);
+
     print("成功");
       setState(() {
-       resultStr = "请求成功";
+       homeModel = model;
     });
 
-  // }catch(e)
-  // {
-  // print("失败");
-  //   setState(() {
-  //     resultStr = '请求失败';
-  //   });
-  // }
+
+
+  }catch(e)
+  {
+  print("失败");
+    setState(() {
+      homeModel = HomeModel();
+    });
+  }
 
 
 
