@@ -14,11 +14,10 @@ class GirdNav extends StatefulWidget {
 class _GirdNavState extends State<GirdNav> {
   @override
   Widget build(BuildContext context) {
-
-    
     return PhysicalModel(
       color: Colors.transparent,
       borderRadius: BorderRadius.circular(6),
+      clipBehavior: Clip.antiAlias, // 是否裁切
       child: Column(
       children: _genGridNavItems(context),
     ),
@@ -77,7 +76,7 @@ class _GirdNavState extends State<GirdNav> {
  Widget _mainItem(BuildContext context, CommonModel model){
 
 return _wrapGesture(context, Stack(
-   alignment: AlignmentDirectional.center,
+   alignment: AlignmentDirectional.topCenter,
     children: <Widget>[
       Image.network(
         model.icon,
