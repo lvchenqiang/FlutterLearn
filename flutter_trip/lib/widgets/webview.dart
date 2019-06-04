@@ -81,12 +81,15 @@ class _WebViewState extends State<WebView> {
   @override
   void dispose() {
     // TODO: implement dispose
-    super.dispose();
 
-    _onUrlChanged.cancel();
+     _onUrlChanged.cancel();
     _onStateChanged.cancel();
     _onHttpError.cancel();
     flutterWebviewPlugin.dispose();
+
+    super.dispose();
+
+  
 
 
   }
@@ -135,11 +138,16 @@ class _WebViewState extends State<WebView> {
      );
    }else{
   return Container(
+    color: backgroundColor,
+    padding: EdgeInsets.only(top: 40,bottom: 10),
     child: FractionallySizedBox(
       widthFactor: 1,
       child: Stack(
         children: <Widget>[
           GestureDetector(
+            onTap: (){
+              Navigator.pop(context);
+            },
             child: Container(
               margin: EdgeInsets.only(left: 10),
               child: Icon(

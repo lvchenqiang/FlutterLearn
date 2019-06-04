@@ -91,7 +91,10 @@ class _HomePageState extends State<HomePage> {
                    child: LocalNav(localNavList:homeModel.localNavList),
                  ),
 
-                GirdNav(model: homeModel.gridNav),
+                Padding(
+                  padding: EdgeInsets.only(left: 12,right: 12),
+                  child: GirdNav(gridNavmodel: homeModel.gridNav),
+                ),
                  Container(
                    height: 800,
                    child: ListTile(
@@ -148,7 +151,6 @@ class _HomePageState extends State<HomePage> {
       setState(() {
        homeModel = model;
     });
-
 
 
   }catch(e)
