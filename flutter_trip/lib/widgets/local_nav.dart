@@ -39,7 +39,7 @@ return GestureDetector(
         print(model.title);
 
         Navigator.push(context, MaterialPageRoute(builder: (context) =>
-          WebView(url: model.url,title: model.title,statusBarColor: model.statusBarColor,hideAppBar: model.hideAppBar,backForbid: true,)
+          WebView(url: model.url,title: model.title,statusBarColor: model.statusBarColor,hideAppBar: model.hideAppBar,)
         ));
       },
       child: Column(
