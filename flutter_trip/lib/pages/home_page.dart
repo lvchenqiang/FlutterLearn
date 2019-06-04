@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
+import 'package:flutter_trip/dao/home_dao.dart';
+import 'package:flutter_trip/model/home_model.dart';
+
+
 const APPBAR_SCROLL_OFFSET = 100;
 
 class HomePage extends StatefulWidget {
@@ -18,6 +22,9 @@ class _HomePageState extends State<HomePage> {
   ];
 
   double appBarAlpha = 0;
+
+  String resultStr = '';
+
 
   _onScroll(offset) {
     double alpha = offset / APPBAR_SCROLL_OFFSET;
@@ -67,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                  Container(
                    height: 800,
                    child: ListTile(
-                     title: Text("哈哈"),
+                     title: Text(resultStr),
                    ),
                  )
                ],
@@ -90,5 +97,47 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+  }
+
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // 请求网络接口
+   loadData();
+
+  }
+
+  void loadData() async{
+    HomdeDao.fetch().then((result){
+     print(result);
+    }).catchError((error){
+   print(error);
+    });
+
+
+  // try {
+print("成功");
+    HomeModel model = await HomdeDao.fetch();
+    print(model);
+    print("成功");
+      setState(() {
+       resultStr = "请求成功";
+    });
+
+  // }catch(e)
+  // {
+  // print("失败");
+  //   setState(() {
+  //     resultStr = '请求失败';
+  //   });
+  // }
+
+
+
+
+
   }
 }
