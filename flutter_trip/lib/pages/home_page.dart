@@ -8,7 +8,7 @@ import 'package:flutter_trip/model/home_model.dart';
 
 import 'package:flutter_trip/widgets/gird_nav.dart';
 import 'package:flutter_trip/widgets/local_nav.dart';
-
+import 'package:flutter_trip/widgets/sub_nav.dart';
 
 const APPBAR_SCROLL_OFFSET = 100;
 
@@ -95,6 +95,11 @@ class _HomePageState extends State<HomePage> {
                   padding: EdgeInsets.only(left: 12,right: 12),
                   child: GirdNav(gridNavmodel: homeModel.gridNav),
                 ),
+                Padding(
+                  padding: EdgeInsets.only(left: 12,right: 12,top: 7),
+                  child: SubNav(subNavList: homeModel.subNavList),
+                )
+                ,
                  Container(
                    height: 800,
                    child: ListTile(
