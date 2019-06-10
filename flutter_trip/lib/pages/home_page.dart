@@ -8,6 +8,7 @@ import 'package:flutter_trip/model/home_model.dart';
 
 import 'package:flutter_trip/widgets/gird_nav.dart';
 import 'package:flutter_trip/widgets/local_nav.dart';
+import 'package:flutter_trip/widgets/sales_box.dart';
 import 'package:flutter_trip/widgets/sub_nav.dart';
 
 const APPBAR_SCROLL_OFFSET = 100;
@@ -98,14 +99,17 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                   padding: EdgeInsets.only(left: 12,right: 12,top: 7),
                   child: SubNav(subNavList: homeModel.subNavList),
-                )
-                ,
-                 Container(
-                   height: 800,
-                   child: ListTile(
-                     title: Text(homeModel.config.searchUrl),
-                   ),
-                 )
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 12,right: 12,top: 7),
+                  child: SalesBox(salesBox:homeModel.salesBox),
+                ),
+                //  Container(
+                //    height: 800,
+                //    child: ListTile(
+                //      title: Text(homeModel.config.searchUrl),
+                //    ),
+                //  )
                ],
              ),  
             ),
