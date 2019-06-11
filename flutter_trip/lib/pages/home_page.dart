@@ -10,6 +10,8 @@ import 'package:flutter_trip/widgets/gird_nav.dart';
 import 'package:flutter_trip/widgets/local_nav.dart';
 import 'package:flutter_trip/widgets/sales_box.dart';
 import 'package:flutter_trip/widgets/sub_nav.dart';
+import 'package:flutter_trip/widgets/loading_container.dart';
+import 'package:flutter_trip/widgets/webview.dart';
 
 const APPBAR_SCROLL_OFFSET = 100;
 
@@ -28,7 +30,7 @@ class _HomePageState extends State<HomePage> {
   ];
 
   double appBarAlpha = 0;
-
+  bool isLoading = true;
   HomeModel homeModel;
 
 
@@ -59,7 +61,8 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       backgroundColor: Color(0xfff2f2f2),
-      body: Stack(
+      body: LoadingContainer(isLoading: isLoading,child: 
+      Stack(
         children: <Widget>[
           MediaQuery.removePadding(
             removeTop: true,
@@ -77,11 +80,19 @@ class _HomePageState extends State<HomePage> {
                  Container(
                    height: 160,
                    child: Swiper(
-                     itemCount: _imageUrls.length,
+                     itemCount: homeModel.bannerList.length,
                      autoplay: true,
                      itemBuilder: (BuildContext context, int index){
-                       return Image.network(_imageUrls[index],
+                       return GestureDetector(
+                         onTap: (){
+                          CommonModel model = homeModel.bannerList[index]; 
+                          Navigator.push(context, MaterialPageRoute(builder: (context) =>
+          WebView(url: model.url,title: model.title,statusBarColor: model.statusBarColor,hideAppBar: model.hideAppBar,)
+        ));
+                         },
+                         child: Image.network(homeModel.bannerList[index].icon,
                            fit: BoxFit.fill,
+                       )
                        );
                      },
                      pagination: SwiperPagination(),
@@ -129,6 +140,7 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
+      )
     );
   }
 
@@ -159,6 +171,7 @@ class _HomePageState extends State<HomePage> {
     print("成功");
       setState(() {
        homeModel = model;
+       isLoading = false;
     });
 
 
@@ -167,6 +180,7 @@ class _HomePageState extends State<HomePage> {
   print("失败");
     setState(() {
       homeModel = HomeModel();
+      // isLoading = false;
     });
   }
 

@@ -7,7 +7,7 @@ final Widget child;
 final bool isLoading;
 final bool cover; /// 是否覆盖整个布局
 
-  const LoadingContainer({Key key, @required this.child, this.isLoading = false, @required this.cover}) : super(key: key);
+  const LoadingContainer({Key key, @required this.child, @required this.isLoading ,  this.cover=false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +21,13 @@ final bool cover; /// 是否覆盖整个布局
   }
 
 
-  Widget get _loadView{
 
-  }
+Widget get _loadView{
+return Center(
+  child: CircularProgressIndicator(),
+   );
+}
+
 
 
 
