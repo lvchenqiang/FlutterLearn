@@ -9,6 +9,7 @@ import 'package:flutter_trip/model/home_model.dart';
 import 'package:flutter_trip/widgets/gird_nav.dart';
 import 'package:flutter_trip/widgets/local_nav.dart';
 import 'package:flutter_trip/widgets/sales_box.dart';
+import 'package:flutter_trip/widgets/search_bar.dart';
 import 'package:flutter_trip/widgets/sub_nav.dart';
 import 'package:flutter_trip/widgets/loading_container.dart';
 import 'package:flutter_trip/widgets/webview.dart';
@@ -28,6 +29,7 @@ double appBarAlpha = 0;
 bool isLoading = true;
 HomeModel homeModel;
 
+String SEARCH_BAR_TEXT = "网红打卡点 酒店 美食";
 
 _onScroll(offset) {
   double alpha = offset / APPBAR_SCROLL_OFFSET;
@@ -40,6 +42,17 @@ _onScroll(offset) {
     appBarAlpha = alpha;
   });
   print(appBarAlpha);
+}
+
+
+
+_jumpToSearch(){
+
+}
+
+_jumpToSpeak(){
+
+
 }
 
 
@@ -73,19 +86,7 @@ Widget build(BuildContext context) {
             child: _genListView,
              ),
         ),
-        Opacity(
-          opacity: appBarAlpha,
-          child: Container(
-            height: 80,
-            decoration: BoxDecoration(color: Colors.red),
-            child: Center(
-              child: Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: Text(homeModel.config.searchUrl),
-            ),
-            )
-          ),
-        )
+        _genAppBar
       ],
     ),
     )
@@ -131,6 +132,53 @@ print("失败");
     // isLoading = false;
   });
 }
+
+
+}
+
+
+Widget get _genAppBar{
+
+return Column(
+  children: <Widget>[
+    Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Color(0x66000000),Colors.transparent],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        )
+      ),
+      child: Container(
+        padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+        height: 80,
+        decoration: BoxDecoration(
+          color: Color.fromARGB((appBarAlpha * 255).toInt(), 255, 255, 255)
+        ),
+        child:  SearchBar(
+            type: appBarAlpha>0.2?SearchType.homeLight:SearchType.home,
+            enabled: false,
+            hideLeft: true,
+            inputBoxClick: _jumpToSearch,
+            speakClick: _jumpToSpeak,
+            defaultText: SEARCH_BAR_TEXT,
+            leftBtnClick: (){
+
+            },
+          ),
+      ),
+    ),
+    Container(
+      height: appBarAlpha>0.2?0.5:0,
+      decoration: BoxDecoration(
+        boxShadow: [BoxShadow(color: Colors.black12,blurRadius: 0.5)],
+
+      ),
+    )
+   
+
+  ],
+);
 
 }
 
