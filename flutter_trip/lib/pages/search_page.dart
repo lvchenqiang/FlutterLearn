@@ -3,10 +3,28 @@ import 'package:flutter_trip/dao/search_dao.dart';
 
 import 'package:flutter_trip/model/home_search_model.dart';
 import 'package:flutter_trip/widgets/search_bar.dart';
+import 'package:flutter_trip/widgets/webview.dart';
 
 
 
 const String url = 'https://m.ctrip.com/restapi/h5api/searchapp/search?source=mobileweb&action=autocomplete&contentType=json&keyword=';
+
+const TYPES = [
+  'channelgroup',
+  'channelgs',
+  'channelplane',
+  'channeltrain',
+  'cruise',
+  'district',
+  'food',
+  'hotel',
+  'huodong',
+  'shop',
+  'sight',
+  'ticket',
+  'travelgroup'
+];
+
 
 class SearchPage extends StatefulWidget {
 
@@ -16,7 +34,7 @@ final String searchUrl;
 final String keyword;
 final String hint;
 
-  SearchPage({Key key, this.hideLeft = true, this.searchUrl = url, this.keyword, this.hint}) : super(key: key);
+  SearchPage({Key key, this.hideLeft, this.searchUrl = url, this.keyword, this.hint}) : super(key: key);
 
   _SearchPageState createState() => _SearchPageState();
 }
@@ -55,7 +73,19 @@ HomeSearchModel searchModel;
   }
 
 
+ _typeImageName(String type){
+ if(type == null) return 'images/type_channelgroup.png';
+ String path = 'travelgroup';
+ for(final val in TYPES){
+  if(type.contains(val)){
+     path = val;
+     break;
+  }
+ }
 
+return 'images/type_$path.png';
+
+}
 
 /// 输入框字符串的回调
   void _onTextChange(String text){
@@ -90,9 +120,44 @@ HomeSearchModel searchModel;
 Widget _genListItem(BuildContext context, int index){
 
 if(searchModel == null || searchModel.data == null) return null;
+SearchItem item =  searchModel.data[index];
 
-return Text(
-  searchModel.data[index].word
+return GestureDetector(
+  onTap: (){
+   Navigator.push(context, MaterialPageRoute(builder: (context) =>
+          WebView(url: item.url,title: '详情')
+        ));
+  },
+  child: Container(
+    padding: EdgeInsets.all(10),
+    decoration: BoxDecoration(
+      border: Border(bottom: BorderSide(color: Colors.grey,width: 0.3))
+    ),
+    child: Row(
+      children: <Widget>[
+        Container(
+        margin: EdgeInsets.all(1),
+        child: Image(
+          height: 26,
+          width: 26,
+          image: AssetImage(_typeImageName(item.type)),
+        ),
+        ),
+        Column(
+          children: <Widget>[
+            Container(
+              width: 300,
+              child: Text('${item.word} ${item.districtname ?? ''} ${item.zonename ?? '' }'),
+            ),
+             Container(
+              width: 300,
+              child: Text('${item.price ?? ''} ${item.type ?? ''} '),
+            )
+          ],
+        )
+      ],
+    ),
+  )
 );
 }
 
