@@ -73,6 +73,64 @@ HomeSearchModel searchModel;
   }
 
 
+
+_itemTitle(SearchItem item){
+  if(item == null) return null;
+
+  List<TextSpan> spans = [];
+  spans.addAll(_keywordTextSpans(item.word,searchModel.keyWord));
+  spans.add(TextSpan(text: ' ' + '${item.districtname ?? ''} ${item.zonename ?? '' }',
+  style: TextStyle(
+  color: Colors.grey,
+  fontSize: 16
+  )));
+
+  return RichText(text: TextSpan(children: spans),);
+}
+
+
+
+_keywordTextSpans(String text, String keyword){
+List<TextSpan> spans = [];
+if(text==null || text.length == 0) return spans;
+List<String> arr = text.split(keyword);
+TextStyle normalStyle = TextStyle(fontSize: 16,color: Colors.black87);
+TextStyle keywordStyle = TextStyle(fontSize: 16,color: Colors.yellow);
+
+
+for(int i = 0; i<arr.length; i++){
+  if((i+1)%2 == 0){
+    spans.add(TextSpan(text: keyword,style: keywordStyle));
+  }
+
+String val = arr[i];
+if(val!= null && val.length != 0){
+  spans.add(TextSpan(text: val,style: normalStyle));
+}
+}
+
+
+return spans;
+}
+
+_itemSubTitle(SearchItem item){
+
+  return RichText(text: TextSpan(
+    children: [
+     TextSpan(text: item.price ?? '',
+       style: TextStyle(fontSize: 16,color: Colors.orange)
+     ),
+     TextSpan(text: ' ' + (item.star ?? ''),
+       style: TextStyle(fontSize: 16,color: Colors.black87)
+     ),
+
+    ]
+  ),
+  );
+}
+
+
+
  _typeImageName(String type){
  if(type == null) return 'images/type_channelgroup.png';
  String path = 'travelgroup';
@@ -96,7 +154,8 @@ return 'images/type_$path.png';
      });
    }else{
    
-  
+  print(text);
+
   SearchDao.fetch(widget.searchUrl,text).then((model){
    if(model.keyWord == keyword){ // 当前服务器返回内容与请求内容一致
      setState(() {
@@ -147,11 +206,11 @@ return GestureDetector(
           children: <Widget>[
             Container(
               width: 300,
-              child: Text('${item.word} ${item.districtname ?? ''} ${item.zonename ?? '' }'),
+              child: _itemTitle(item),
             ),
              Container(
               width: 300,
-              child: Text('${item.price ?? ''} ${item.type ?? ''} '),
+              child: _itemSubTitle(item),
             )
           ],
         )

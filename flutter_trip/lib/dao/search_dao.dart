@@ -13,13 +13,15 @@ class SearchDao {
 
 
 static Future<HomeSearchModel>fetch(String url, String text) async {
- final response = await http.get(url);
- print(response);
+ final response = await http.get(url+text);
+
 
  if(response.statusCode == 200){
     Utf8Decoder  utf8decoder = Utf8Decoder(); // 处理中文乱码的问题
     var result = json.decode(utf8decoder.convert(response.bodyBytes));
+     print(result);
     HomeSearchModel model =  HomeSearchModel.fromJson(result);
+
     model.keyWord = text;
     return model;
   }else{
