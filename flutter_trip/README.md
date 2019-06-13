@@ -4,13 +4,21 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### flutter get package
 
-A few resources to get you started if this is your first Flutter project:
+### flutter run 
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## UI
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+### 首页
+1. 渐变导航栏
+2. 基于GirdView实现复杂UI
+3. 基于http,实现网络请求
+4. 基于shared_preferences,实现本地缓存
+5. Flutter异步编程
+
+
+### 搜索
+1. 高度封装定制导航栏搜索框
+2. 实现动态icon,与富文本
+3. 待续
