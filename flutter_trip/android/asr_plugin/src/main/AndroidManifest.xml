@@ -1,2 +1,28 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.asr.plugin" />
+    package="com.example.asr.plugin" >
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application>
+
+        <service android:name="com.baidu.speech.VoiceRecognitionService"
+            android:exported="false" />
+
+        <meta-data android:name="com.baidu.speech.APP_ID"
+            android:value="16523843" />
+        <meta-data
+            android:name="com.baidu.speech.API_KEY"
+            android:value="r7BdC5APNtS3c2iLzL27419l" />
+        <meta-data
+            android:name="com.baidu.speech.SECRET_KEY"
+            android:value="s6BWDx0CVMQnCcHS7rvGRm1Gp54I5Hcu" />
+
+
+    </application>
+
+</manifest>
+

@@ -8,7 +8,7 @@ A new Flutter project.
 
 ### flutter run 
 
-## UI
+## page
 
 ### 首页
 1. 渐变导航栏
@@ -22,3 +22,15 @@ A new Flutter project.
 1. 高度封装定制导航栏搜索框
 2. 实现动态icon,与富文本
 3. 待续
+
+
+
+
+## UI
+
+
+
+
+
+
+

@@ -2,7 +2,6 @@ package com.example.asr.plugin;
 
 import android.util.Log;
 
-import com.baidu.aip.asrwakeup3.core.util.MyLogger;
 import com.baidu.speech.EventListener;
 import com.baidu.speech.asr.SpeechConstant;
 
@@ -15,11 +14,11 @@ import org.json.JSONObject;
 
 public class RecogEventAdapter implements EventListener {
 
-    private IRecogListener listener;
+    private OnAsrListener listener;
 
     private static final String TAG = "RecogEventAdapter";
 
-    public RecogEventAdapter(IRecogListener listener) {
+    public RecogEventAdapter(OnAsrListener listener) {
         this.listener = listener;
     }
 
@@ -70,7 +69,7 @@ public class RecogEventAdapter implements EventListener {
             if (recogResult.hasError()) {
                 int errorCode = recogResult.getError();
                 int subErrorCode = recogResult.getSubError();
-                MyLogger.error(TAG, "asr error:" + params);
+                Log.e(TAG, "asr error:" + params);
                 listener.onAsrFinishError(errorCode, subErrorCode, recogResult.getDesc(), recogResult);
             } else {
                 listener.onAsrFinish(recogResult);
@@ -85,7 +84,7 @@ public class RecogEventAdapter implements EventListener {
             listener.onAsrVolume(vol.volumePercent, vol.volume);
         } else if (name.equals(SpeechConstant.CALLBACK_EVENT_ASR_AUDIO)) {
             if (data.length != length) {
-                MyLogger.error(TAG, "internal error: asr.audio callback data length is not equal to length param");
+                Log.e(TAG, "internal error: asr.audio callback data length is not equal to length param");
             }
             listener.onAsrAudio(data, offset, length);
         }

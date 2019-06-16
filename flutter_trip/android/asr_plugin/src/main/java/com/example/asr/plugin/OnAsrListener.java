@@ -1,6 +1,5 @@
 package com.example.asr.plugin;
 
-import com.baidu.aip.asrwakeup3.core.recog.RecogResult;
 
 /**
  * 与SDK中回调参数的对应关系定义在RecogEventAdapter类中
