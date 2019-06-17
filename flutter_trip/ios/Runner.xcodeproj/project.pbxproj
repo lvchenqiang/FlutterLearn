@@ -29,6 +29,7 @@
 		6193CB9F22B53A5A00C7C773 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6193CB9E22B53A5A00C7C773 /* libz.1.2.5.tbd */; };
 		6193CBA222B77DCE00C7C773 /* AsrManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6193CBA122B77DCE00C7C773 /* AsrManager.m */; };
 		6193CBB222B7806700C7C773 /* .gitIgnore in Resources */ = {isa = PBXBuildFile; fileRef = 6193CBA822B7806700C7C773 /* .gitIgnore */; };
+		6193CBB522B785F700C7C773 /* AsrPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6193CBB422B785F700C7C773 /* AsrPlugin.m */; };
 		9705A1C61CF904A100538489 /* Flutter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9740EEBA1CF902C7004384FC /* Flutter.framework */; };
 		9705A1C71CF904A300538489 /* Flutter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9740EEBA1CF902C7004384FC /* Flutter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9740EEB41CF90195004384FC /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9740EEB21CF90195004384FC /* Debug.xcconfig */; };
@@ -91,6 +92,8 @@
 		6193CBAF22B7806700C7C773 /* BDRecognizerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDRecognizerViewController.h; sourceTree = "<group>"; };
 		6193CBB022B7806700C7C773 /* BDTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDTheme.h; sourceTree = "<group>"; };
 		6193CBB122B7806700C7C773 /* BDRecognizerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDRecognizerViewDelegate.h; sourceTree = "<group>"; };
+		6193CBB322B785F700C7C773 /* AsrPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AsrPlugin.h; sourceTree = "<group>"; };
+		6193CBB422B785F700C7C773 /* AsrPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AsrPlugin.m; sourceTree = "<group>"; };
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
 		7AFFD8ED1D35381100E5BB4D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7AFFD8EE1D35381100E5BB4D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				6193CBA422B7806700C7C773 /* ASR */,
+				6193CBB322B785F700C7C773 /* AsrPlugin.h */,
+				6193CBB422B785F700C7C773 /* AsrPlugin.m */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -430,6 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6193CBA222B77DCE00C7C773 /* AsrManager.m in Sources */,
+				6193CBB522B785F700C7C773 /* AsrPlugin.m in Sources */,
 				978B8F6F1D3862AE00F588F7 /* AppDelegate.m in Sources */,
 				97C146F31CF9000F007C117D /* main.m in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
