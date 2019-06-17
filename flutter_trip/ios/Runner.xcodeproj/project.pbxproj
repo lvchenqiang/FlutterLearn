@@ -27,6 +27,8 @@
 		6193CB9B22B53A3300C7C773 /* libiconv.2.4.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6193CB9A22B53A3300C7C773 /* libiconv.2.4.0.tbd */; };
 		6193CB9D22B53A4700C7C773 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6193CB9C22B53A4700C7C773 /* libc++.tbd */; };
 		6193CB9F22B53A5A00C7C773 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6193CB9E22B53A5A00C7C773 /* libz.1.2.5.tbd */; };
+		6193CBA222B77DCE00C7C773 /* AsrManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6193CBA122B77DCE00C7C773 /* AsrManager.m */; };
+		6193CBB222B7806700C7C773 /* .gitIgnore in Resources */ = {isa = PBXBuildFile; fileRef = 6193CBA822B7806700C7C773 /* .gitIgnore */; };
 		9705A1C61CF904A100538489 /* Flutter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9740EEBA1CF902C7004384FC /* Flutter.framework */; };
 		9705A1C71CF904A300538489 /* Flutter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9740EEBA1CF902C7004384FC /* Flutter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9740EEB41CF90195004384FC /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9740EEB21CF90195004384FC /* Debug.xcconfig */; };
@@ -75,6 +77,20 @@
 		6193CB9A22B53A3300C7C773 /* libiconv.2.4.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.4.0.tbd; path = usr/lib/libiconv.2.4.0.tbd; sourceTree = SDKROOT; };
 		6193CB9C22B53A4700C7C773 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		6193CB9E22B53A5A00C7C773 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		6193CBA022B77DCE00C7C773 /* AsrManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AsrManager.h; sourceTree = "<group>"; };
+		6193CBA122B77DCE00C7C773 /* AsrManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AsrManager.m; sourceTree = "<group>"; };
+		6193CBA522B7806700C7C773 /* BDSWakeupParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDSWakeupParameters.h; sourceTree = "<group>"; };
+		6193CBA622B7806700C7C773 /* BDSASRParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDSASRParameters.h; sourceTree = "<group>"; };
+		6193CBA722B7806700C7C773 /* BDSEventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDSEventManager.h; sourceTree = "<group>"; };
+		6193CBA822B7806700C7C773 /* .gitIgnore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitIgnore; sourceTree = "<group>"; };
+		6193CBA922B7806700C7C773 /* BDSUploaderDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDSUploaderDefines.h; sourceTree = "<group>"; };
+		6193CBAA22B7806700C7C773 /* BDSASRDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDSASRDefines.h; sourceTree = "<group>"; };
+		6193CBAB22B7806700C7C773 /* BDSUploaderParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDSUploaderParameters.h; sourceTree = "<group>"; };
+		6193CBAC22B7806700C7C773 /* BDSWakeupDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDSWakeupDefines.h; sourceTree = "<group>"; };
+		6193CBAE22B7806700C7C773 /* BDRecognizerViewParamsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDRecognizerViewParamsObject.h; sourceTree = "<group>"; };
+		6193CBAF22B7806700C7C773 /* BDRecognizerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDRecognizerViewController.h; sourceTree = "<group>"; };
+		6193CBB022B7806700C7C773 /* BDTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDTheme.h; sourceTree = "<group>"; };
+		6193CBB122B7806700C7C773 /* BDRecognizerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDRecognizerViewDelegate.h; sourceTree = "<group>"; };
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
 		7AFFD8ED1D35381100E5BB4D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7AFFD8EE1D35381100E5BB4D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -125,9 +141,12 @@
 		6193CB7D22B5391600C7C773 /* plugin */ = {
 			isa = PBXGroup;
 			children = (
+				6193CBA322B7805700C7C773 /* Headers */,
 				6193CB8522B539CE00C7C773 /* BDSClientEASRResources */,
 				6193CB8322B5399600C7C773 /* BDSClientResources */,
 				6193CB7E22B5394100C7C773 /* BDSClientLib */,
+				6193CBA022B77DCE00C7C773 /* AsrManager.h */,
+				6193CBA122B77DCE00C7C773 /* AsrManager.m */,
 			);
 			path = plugin;
 			sourceTree = "<group>";
@@ -154,6 +173,41 @@
 				6193CB8D22B539CE00C7C773 /* bds_easr_dnn_wakeup_model.dat */,
 			);
 			path = BDSClientEASRResources;
+			sourceTree = "<group>";
+		};
+		6193CBA322B7805700C7C773 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				6193CBA422B7806700C7C773 /* ASR */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		6193CBA422B7806700C7C773 /* ASR */ = {
+			isa = PBXGroup;
+			children = (
+				6193CBA522B7806700C7C773 /* BDSWakeupParameters.h */,
+				6193CBA622B7806700C7C773 /* BDSASRParameters.h */,
+				6193CBA722B7806700C7C773 /* BDSEventManager.h */,
+				6193CBA822B7806700C7C773 /* .gitIgnore */,
+				6193CBA922B7806700C7C773 /* BDSUploaderDefines.h */,
+				6193CBAA22B7806700C7C773 /* BDSASRDefines.h */,
+				6193CBAB22B7806700C7C773 /* BDSUploaderParameters.h */,
+				6193CBAC22B7806700C7C773 /* BDSWakeupDefines.h */,
+				6193CBAD22B7806700C7C773 /* UIHeaders */,
+			);
+			path = ASR;
+			sourceTree = "<group>";
+		};
+		6193CBAD22B7806700C7C773 /* UIHeaders */ = {
+			isa = PBXGroup;
+			children = (
+				6193CBAE22B7806700C7C773 /* BDRecognizerViewParamsObject.h */,
+				6193CBAF22B7806700C7C773 /* BDRecognizerViewController.h */,
+				6193CBB022B7806700C7C773 /* BDTheme.h */,
+				6193CBB122B7806700C7C773 /* BDRecognizerViewDelegate.h */,
+			);
+			path = UIHeaders;
 			sourceTree = "<group>";
 		};
 		91E776DA61DCA45EAA5C4576 /* Pods */ = {
@@ -282,6 +336,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6193CBB222B7806700C7C773 /* .gitIgnore in Resources */,
 				6193CB9222B539CE00C7C773 /* bds_easr_mfe_dnn.dat in Resources */,
 				6193CB8F22B539CE00C7C773 /* bds_easr_basic_model.dat in Resources */,
 				6193CB9122B539CE00C7C773 /* bds_easr_input_model.dat in Resources */,
@@ -374,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6193CBA222B77DCE00C7C773 /* AsrManager.m in Sources */,
 				978B8F6F1D3862AE00F588F7 /* AppDelegate.m in Sources */,
 				97C146F31CF9000F007C117D /* main.m in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,

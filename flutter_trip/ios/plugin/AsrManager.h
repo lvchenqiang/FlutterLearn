@@ -8,9 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^AsrCallBack)(NSString * message);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AsrManager : NSObject
+
++(instancetype)initWithCallBck:(AsrCallBack)success faliure:(AsrCallBack)failure;
+
+- (void)start;
+
+-(void)stop;
+
+
+-(void)cancel;
+
 
 @end
 
