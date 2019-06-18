@@ -171,7 +171,7 @@ return Container(
          ),
        ), widget.inputBoxClick),
      ),
-     showClear?_wrap(Icon(
+     !showClear?_wrap(Icon(
        Icons.mic,
        size: 22,
        color:  widget.type==SearchType.normal? Colors.blue:Colors.grey,
@@ -211,11 +211,11 @@ return GestureDetector(
 void _onchange(String text){
 if(text.length>0){
  setState(() {
-   showClear = false;
+   showClear = true;
  });
 }else{
   setState(() {
-    showClear = true;
+    showClear = false;
   });
 }
 

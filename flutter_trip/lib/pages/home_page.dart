@@ -8,6 +8,7 @@ import 'package:flutter_trip/dao/search_dao.dart';
 import 'package:flutter_trip/model/home_model.dart';
 import 'package:flutter_trip/model/home_search_model.dart';
 import 'package:flutter_trip/pages/search_page.dart';
+import 'package:flutter_trip/pages/speak_page.dart';
 
 import 'package:flutter_trip/widgets/gird_nav.dart';
 import 'package:flutter_trip/widgets/local_nav.dart';
@@ -59,7 +60,9 @@ Navigator.push(context, MaterialPageRoute(builder: (context){
 
 _jumpToSpeak(){
 
-
+ Navigator.push(context, MaterialPageRoute(builder: (context){
+  return SpeakPage();
+}));
 }
 
 
