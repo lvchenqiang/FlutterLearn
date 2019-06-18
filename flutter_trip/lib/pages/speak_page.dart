@@ -39,7 +39,8 @@ class _SpeakPageState extends State<SpeakPage> with SingleTickerProviderStateMix
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(
+      body: Container(
        child:Container(
          padding: EdgeInsets.all(30),
          decoration: BoxDecoration(
@@ -55,6 +56,7 @@ class _SpeakPageState extends State<SpeakPage> with SingleTickerProviderStateMix
            ),
          ),
        ),
+    ),
     );
   }
 

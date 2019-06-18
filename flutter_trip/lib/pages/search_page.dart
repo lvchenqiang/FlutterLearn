@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_trip/dao/search_dao.dart';
 
 import 'package:flutter_trip/model/home_search_model.dart';
+import 'package:flutter_trip/pages/speak_page.dart';
 import 'package:flutter_trip/widgets/search_bar.dart';
 import 'package:flutter_trip/widgets/webview.dart';
 
@@ -145,6 +146,14 @@ return 'images/type_$path.png';
 
 }
 
+
+_jumpToSpeak(){
+
+ Navigator.push(context, MaterialPageRoute(builder: (context){
+  return SpeakPage();
+}));
+}
+
 /// 输入框字符串的回调
   void _onTextChange(String text){
    keyword = text;
@@ -245,6 +254,7 @@ Widget _appBar(){
             leftBtnClick: (){
               Navigator.pop(context);
             },
+            speakClick: _jumpToSpeak,
             onChange: _onTextChange,
             
           ),
