@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_trip/dao/travel_dao.dart';
 import 'package:flutter_trip/model/travel_model.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:flutter_trip/widgets/loading_container.dart';
 import 'package:flutter_trip/widgets/webview.dart';
 
 const TRAVEL_URL =
@@ -22,17 +23,33 @@ TravelTabPage({Key key, this.travelUrl, this.params, this.groupChannelCode, this
 _TravelTabPageState createState() => _TravelTabPageState();
 }
 
-class _TravelTabPageState extends State<TravelTabPage> {
+class _TravelTabPageState extends State<TravelTabPage> with AutomaticKeepAliveClientMixin{
 
 List<TravelItem> travelItems = [];
 int pageIndex = 1;
+bool isLoading = true;
+ScrollController _scrollController = ScrollController();
 
 
-loadData(){
+Future<Null> _handleRefresh() async
+{
+  loadData();
+  return null;
+}
+
+loadData({loadMore:false}){
+   
+  if(loadMore) {
+  pageIndex++;
+  }else{
+   pageIndex = 1;
+  }
 
 TravelDao.fetch(widget.travelUrl, widget.params, widget.groupChannelCode, widget.type, pageIndex, 20).then((TravelModel model){
 
+
   setState(() {
+    isLoading = false;
     List<TravelItem> items = _filteritems(model.resultList);
     if(travelItems != null){
       travelItems.addAll(items);
@@ -43,6 +60,12 @@ TravelDao.fetch(widget.travelUrl, widget.params, widget.groupChannelCode, widget
 
 }).catchError((error){
   print(error);
+
+  setState(() {
+    
+    isLoading = false;
+
+  });
 });
 }
 
@@ -61,24 +84,46 @@ return filterItems;
 @override
 void initState() {
   loadData();
+  _scrollController.addListener((){
+    
+  if(_scrollController.position.pixels == _scrollController.position.maxScrollExtent){
+    loadData(loadMore:true);
+  }
+  }
+    
+  );
   super.initState();
 }
 
 @override
 Widget build(BuildContext context) {
   return Scaffold(
-    body: StaggeredGridView.countBuilder(
-    crossAxisCount: 4,
-    itemCount: travelItems?.length ?? 0,
-    itemBuilder: (BuildContext context, int index) => _TraveItem(index: index,item: travelItems[index]),
+    body: LoadingContainer(
+      isLoading: isLoading,
+      child: RefreshIndicator(
+      onRefresh: _handleRefresh,
+      child: MediaQuery.removePadding(
+      removeTop: true,
+      context: context,
+      child: StaggeredGridView.countBuilder(
+      controller: _scrollController,  
+      crossAxisCount: 4,
+      itemCount: travelItems?.length ?? 0,
+      itemBuilder: (BuildContext context, int index) => _TraveItem(index: index,item: travelItems[index]),
 
-staggeredTileBuilder: (int index) =>
+   staggeredTileBuilder: (int index) =>
     new StaggeredTile.fit(2),
        mainAxisSpacing: 4.0,
        crossAxisSpacing: 4.0,
-),
+ ),
+  ),
+      )
+    )
   );
 }
+
+  @override
+  bool get wantKeepAlive => true;
 }
 
 
