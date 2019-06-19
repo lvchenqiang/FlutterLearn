@@ -46,7 +46,14 @@ String keyword;
 HomeSearchModel searchModel;
 
 
-
+@override
+  void initState() {
+    // TODO: implement initState
+    if(widget.keyword != null && widget.keyword.length > 0){
+      _onTextChange(widget.keyword);
+    }
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
